@@ -76,7 +76,7 @@ void setup() {
     Serial.print(F("IP: "));
     Serial.println(WiFi.localIP());
     ws.setNotWriteRequest([](WebServer &server){
-        Serial.printf_P((PSTR("Not data: %s\r\n")), server.getURI());
+        Serial.printf_P((PSTR("Not data: %s\r\n")), server.getURL());
         server.send(404, PSTR("text/plain"), PSTR("Not Found"));
     });
     ws.on(routes, handlers, 2);
